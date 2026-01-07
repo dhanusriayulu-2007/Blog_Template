@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Lost & Found Application</title>
+
+<style>
+/* ===== GLOBAL STYLES ===== */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+}
+
+/* ===== HEADER ===== */
+header {
+    background: linear-gradient(to right, #1565c0, #1e88e5);
+    color: white;
+    padding: 18px;
+    text-align: center;
+}
+
+/* ===== NAVBAR ===== */
+nav {
+    background: #0d47a1;
+    padding: 10px;
+    text-align: center;
+}
+
+nav button {
+    margin: 6px;
+    padding: 10px 16px;
+    border: none;
+    background: #2196f3;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+nav button:hover {
+    background: #1976d2;
+}
+
+/* ===== SECTIONS ===== */
+section {
+    display: none;
+    padding: 30px 15px;
+}
+
+.active {
+    display: block;
+}
+
+/* ===== CARD ===== */
+.card {
+    background: white;
+    max-width: 650px;
+    margin: auto;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.card h2 {
+    color: #0d47a1;
+    margin-bottom: 15px;
+}
+
+/* ===== FORM ELEMENTS ===== */
+label {
+    font-weight: bold;
+    color: #0d47a1;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 9px;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #90caf9;
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ===== BUTTON ===== */
+button.submit {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(to right, #1976d2, #2196f3);
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button.submit:hover {
+    background: linear-gradient(to right, #0d47a1, #1976d2);
+}
+
+/* ===== TEXT ===== */
+ul li {
+    margin: 8px 0;
+    font-size: 15px;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🔍 Lost & Found Management System</h1>
+    <p>Report • Search • Recover Items Easily</p>
+</header>
+
+<nav>
+    <button onclick="showSection('login')">Login</button>
+    <button onclick="showSection('dashboard')">Dashboard</button>
+    <button onclick="showSection('lost')">Report Lost</button>
+    <button onclick="showSection('found')">Report Found</button>
+    <button onclick="showSection('search')">Search</button>
+    <button onclick="showSection('profile')">Profile</button>
+</nav>
+
+<!-- LOGIN -->
+<section id="login" class="active">
+<div class="card">
+<h2>User Login / Registration</h2>
+
+<label>Email / Phone</label>
+<input type="text" placeholder="Enter email or phone number">
+
+<label>Password</label>
+<input type="password" placeholder="Enter password">
+
+<label>Two-Factor Authentication (OTP)</label>
+<input type="text" placeholder="Enter OTP">
+
+<button class="submit" onclick="showSection('dashboard')">Login</button>
+
+<p style="text-align:center;margin-top:10px;color:#555;">
+Login using Google / Facebook
+</p>
+</div>
+</section>
+
+<!-- DASHBOARD -->
+<section id="dashboard">
+<div class="card">
+<h2>Dashboard</h2>
+<ul>
+<li>📌 Report a Lost Item</li>
+<li>📢 Announce a Found Item</li>
+<li>🔍 Search & View Reported Items</li>
+<li>👤 Manage Profile & Settings</li>
+</ul>
+</div>
+</section>
+
+<!-- LOST ITEM -->
+<section id="lost">
+<div class="card">
+<h2>Report Lost Item</h2>
+
+<label>Item Name</label>
+<input type="text">
+
+<label>Category</label>
+<select>
+<option>Electronics</option>
+<option>Clothing</option>
+<option>Documents</option>
+<option>Accessories</option>
+<option>Others</option>
+</select>
+
+<label>Description</label>
+<textarea></textarea>
+
+<label>Last Known Location</label>
+<input type="text">
+
+<label>Date & Time Lost</label>
+<input type="datetime-local">
+
+<label>Contact Details</label>
+<input type="text">
+
+<label>Upload Photo (Optional)</label>
+<input type="file">
+
+<button class="submit">Submit Lost Item</button>
+</div>
+</section>
+
+<!-- FOUND ITEM -->
+<section id="found">
+<div class="card">
+<h2>Report Found Item</h2>
+
+<label>Item Name</label>
+<input type="text">
+
+<label>Category</label>
+<select>
+<option>Electronics</option>
+<option>Clothing</option>
+<option>Documents</option>
+<option>Accessories</option>
+<option>Others</option>
+</select>
+
+<label>Description</label>
+<textarea></textarea>
+
+<label>Location Found</label>
+<input type="text">
+
+<label>Date & Time Found</label>
+<input type="datetime-local">
+
+<label>Contact Information</label>
+<input type="text">
+
+<label>Upload Photo</label>
+<input type="file">
+
+<button class="submit">Submit Found Item</button>
+</div>
+</section>
+
+<!-- SEARCH -->
+<section id="search">
+<div class="card">
+<h2>Search & Match Items</h2>
+
+<label>Search Item</label>
+<input type="text" placeholder="Item name / category">
+
+<button class="submit">Search</button>
+
+<p style="margin-top:15px;color:#555;">
+🔔 Smart matching suggests items based on description, date, and location.
+</p>
+</div>
+</section>
+
+<!-- PROFILE -->
+<section id="profile">
+<div class="card">
+<h2>User Profile & Credentials</h2>
+
+<label>Name</label>
+<input type="text">
+
+<label>Email</label>
+<input type="email">
+
+<label>Phone</label>
+<input type="text">
+
+<label>Change Password</label>
+<input type="password">
+
+<button class="submit">Update Profile</button>
+</div>
+</section>
+
+<script>
+function showSection(id) {
+    document.querySelectorAll("section").forEach(sec => sec.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+</script>
+
+</body>
+</html>
